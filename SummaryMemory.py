@@ -1,5 +1,5 @@
 class SummaryMemory:
-    def __init__(self, llm, max_size=2):
+    def __init__(self, llm, max_size=10):
         self.llm = llm
         self.max_size = max_size
         self.chat_history = []
@@ -22,8 +22,6 @@ class SummaryMemory:
 {text}
 
 要求：
-以下内容必须保留：
-- 所有书名
 1. 保留用户偏好、重要事实、书名、人名、任务目标和未完成事项。
 2. 删除寒暄、重复内容和无关细节。
 3. 不要编造新增对话里没有的信息。
@@ -47,7 +45,7 @@ class SummaryMemory:
 
     def messages(self):
         if not self.summary:
-            return self.chat_history
+            return list(self.chat_history)
 
         return [
             {
@@ -56,3 +54,7 @@ class SummaryMemory:
             },
             *self.chat_history,
         ]
+
+    def reset(self):
+        self.chat_history = []
+        self.summary = ""
