@@ -4,7 +4,10 @@
   font-family:
     Inter, "Microsoft YaHei", "PingFang SC", "Segoe UI", Arial, sans-serif;
 }
-
+body {
+  height: 100%;
+  overflow: hidden; /* 禁止页面滚动 */
+}
 * {
   box-sizing: border-box;
 }
@@ -81,6 +84,7 @@ h1 {
   gap: 14px;
   overflow-y: auto;
   padding: 20px;
+  max-height: calc(100vh - 200px); /* 添加最大高度 */
 }
 
 .message {
