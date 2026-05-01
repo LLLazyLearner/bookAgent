@@ -1,0 +1,11 @@
+.env
+__pycache__/
+*.py[cod]
+*$py.class
+
+.idea/
+
+frontend/node_modules/
+frontend/dist/
+
+output.mp3
